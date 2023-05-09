@@ -13,7 +13,7 @@ public class BUTTON {
    private boolean clicked = false;
    
    public String ButtonText = "";
-   public int TextSize = 24;
+   public int TextSize = 16;
    
    BUTTON() {
       // CREATE OBJECT DEFAULT BUTTON
