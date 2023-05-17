@@ -1,23 +1,21 @@
-public class Circle {
+public class CIRCLE {
   int cx, cy, radius, colorR, colorG, colorB;
   
-  Circle(int cx, int cy, int radius, int colorR, int colorG, int colorB) {
+  CIRCLE(int cx, int cy, int radius, int colorR, int colorG, int colorB) {
     this.cx = cx;
     this.cy = cy;
     this.radius = radius;
     this.colorR = colorR;
     this.colorG = colorG;
     this.colorB = colorB;
-    
-    this.drawCircle();
   }
   
-  void drawCircle() {
+  void DRAW() {
     int x = 0;
     int y = this.radius;
     int p = (5 - radius * 4) / 4;
     
-    circlePointsx, y);
+    circlePoints(x, y);
     
     while(x < y) {
       x++;
