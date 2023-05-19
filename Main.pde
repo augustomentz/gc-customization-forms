@@ -4,7 +4,7 @@ ArrayList<BUTTON> buttons = new ArrayList<BUTTON>();
 int HEIGHT = 600;
 int WIDTH = 1200;
 
-int RECT_HEIGHT, RECT_WIDTH, CIRCLE_SIZE, BORDER_COLOR_R, BORDER_COLOR_G, BORDER_COLOR_B, BG_COLOR_R, BG_COLOR_G, BG_COLOR_B;
+int RECT_HEIGHT, RECT_WIDTH, CIRCLE_SIZE, BORDER_COLOR_R, BORDER_COLOR_G, BORDER_COLOR_B, BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, STROKE;
 
 CIRCLE circle = null;
 RECTANGLE rectangle = null;
@@ -38,6 +38,8 @@ void configFields() {
    circleBorderColorG.BorderEnable = true;
    TEXTBOX circleBorderColorB = new TEXTBOX(640, 180, 200, 23);
    circleBorderColorB.BorderEnable = true;
+   TEXTBOX borderStroke = new TEXTBOX(875, 125, 200, 23);
+   borderStroke.BorderEnable = true;
    // END CIRCLE
    
    BUTTON rectButton = new BUTTON(275, 180, 200, 25);
@@ -54,6 +56,7 @@ void configFields() {
    textboxes.add(circleBorderColorG);
    textboxes.add(circleBorderColorB);
    textboxes.add(circleSize);
+   textboxes.add(borderStroke);
    buttons.add(rectButton);
    buttons.add(circleButton);
 }
@@ -76,6 +79,7 @@ void configLabels() {
    text("CIRCLE:", 620, 25);
    text("SIZE:", 875, 60);
    text("BORDER COLOR (RGB):", 640, 60);
+   text("BORDER STROKE", 875, 115);
    text("R:", 620, 85);
    text("G:", 620, 140);
    text("B:", 620, 195);
@@ -119,20 +123,23 @@ void draw() {
    if (buttons.get(1).clicked) {
      this.clear();
      
-     if (textboxes.get(5).Text == "" || textboxes.get(6).Text == "" || textboxes.get(7).Text == "") {
+     if (textboxes.get(5).Text == "" || textboxes.get(6).Text == "" || textboxes.get(7).Text == "" || textboxes.get(8).Text == "" ||  textboxes.get(9).Text == "") {
        textboxes.get(5).Text = "0";
        textboxes.get(6).Text = "0";
        textboxes.get(7).Text = "0";
+       textboxes.get(8).Text = "0";
+       textboxes.get(9).Text = "0";
      }
      
      BORDER_COLOR_R = Integer.parseInt(textboxes.get(5).Text);
      BORDER_COLOR_G = Integer.parseInt(textboxes.get(6).Text);
      BORDER_COLOR_B = Integer.parseInt(textboxes.get(7).Text);
      CIRCLE_SIZE = Integer.parseInt(textboxes.get(8).Text);
+     STROKE = Integer.parseInt(textboxes.get(9).Text);
      
      if (CIRCLE_SIZE > 120) CIRCLE_SIZE = 120;
      
-     circle = new CIRCLE(900, 400, CIRCLE_SIZE, BORDER_COLOR_R, BORDER_COLOR_G, BORDER_COLOR_B);
+     circle = new CIRCLE(900, 400, CIRCLE_SIZE, BORDER_COLOR_R, BORDER_COLOR_G, BORDER_COLOR_B, STROKE);
    }
    
    if (circle != null) {
