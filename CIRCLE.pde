@@ -1,13 +1,14 @@
 public class CIRCLE {
-  int cx, cy, radius, colorR, colorG, colorB;
+  int cx, cy, radius, colorR, colorG, colorB, stroke;
   
-  CIRCLE(int cx, int cy, int radius, int colorR, int colorG, int colorB) {
+  CIRCLE(int cx, int cy, int radius, int colorR, int colorG, int colorB, int stroke) {
     this.cx = cx;
     this.cy = cy;
     this.radius = radius;
     this.colorR = colorR;
     this.colorG = colorG;
     this.colorB = colorB;
+    this.stroke = stroke;
   }
   
   void DRAW() {
@@ -31,7 +32,7 @@ public class CIRCLE {
   }
 
   void circlePoints(int x, int y) {
-    strokeWeight(2);
+    strokeWeight(this.stroke);
     stroke(color(this.colorR, this.colorG, this.colorB));
   
     if (x == 0) {
